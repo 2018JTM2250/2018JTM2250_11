@@ -1,0 +1,1208 @@
+#:import FadeTransition kivy.uix.screenmanager.FadeTransition
+   
+ScreenManagement:
+	transition: FadeTransition()
+	SelectionPage:
+	LoginPage:
+    StudentPage:
+    AdminPage:
+    StudentDetailsPage:
+    DetailsPage:
+   
+    
+
+
+
+<SelectionPage>:
+	name : "selection_page"
+
+    canvas:
+    	Rectangle:
+    		source: 'iitdelhi.jpg'
+            size: self.size
+            pos:self.pos
+            
+            
+        Rectangle:
+        	source: 'logo.png'
+            size:300,300
+            pos: (100,700)
+            
+            
+	FloatLayout:
+		Label:
+			text: "Indian Institute of Technology "
+			font_size:70
+			color : 0.5,0.5,0.8,1
+			pos_hint: {"x": 0, "y": 0.4}
+			
+			
+		Label:
+			text: "Delhi"
+			font_size:70
+			color : 0.5,0.5,0.8,1
+			pos_hint: {"x": 0, "y": 0.3}
+			
+		Label:
+			text: " I am "
+			font_size:20
+			color : 0,0,0,1
+			pos_hint: {"x": 0, "y": 0.17}
+			
+		Label:
+			text: " or "
+			font_size:20
+			color : 0,0,0,1
+			pos_hint: {"x": 0, "y": 0.02}
+		Button:
+			text:"Student"
+			font_size:40
+			pos_hint : {"x" : 0.450 , "y" : 0.55}
+			size_hint : 0.1,0.1
+			on_release: root.login_as("student")
+			background_color: 1, 0.78, 0.90, 1 
+          
+          
+		Button:
+			text:"Admin"
+			font_size:40
+			pos_hint : {"x" : 0.450 , "y" : 0.40}
+			size_hint : 0.1,0.1
+			on_release : root.login_as("admin")
+			background_color: 1, 0.78, 0.90, 1 	
+          
+          
+          
+          
+          
+<LoginPage>:
+    name: "login_page"
+    login_statusr : login
+    
+    canvas:
+    	Rectangle:
+    		source: 'wallpaper5.png'
+            size: self.size
+            pos:self.pos
+            
+        Rectangle:
+        	source: 'Logo.png'
+            size:200,200
+            pos: (850,750)
+            
+    
+    GridLayout:
+    	rows:4
+    	spacing:20
+		FloatLayout:
+    		Label:
+    			font_size:70
+    			text:"Enter Credentials"
+    			color : 0,0.9,0.72,1
+    			pos_hint: {"x": 0.01, "y": -0.6}
+    		
+    	
+ 
+		FloatLayout:
+			
+			Label:
+				text: "Enter Username"
+				color : 1,1,0.30,1
+				font_size:28
+				pos_hint: {"x": 0.14, "y": 0.27}
+				size_hint : 0.4,0.3
+				
+        	TextInput:
+        		id: login
+				pos_hint: {"x": 0.42, "y": 0.34}
+				size_hint : 0.3,0.14
+				 
+				multiline: False  
+				font_size:26
+				hint_text : "Username"  
+				write_tab: False
+    		 
+            	
+		FloatLayout:
+			Label:
+				text: "Enter Password"
+				color : 1,1,0.30,1
+				font_size:28
+				pos_hint: {"x": 0.14, "y": 0.96}
+				size_hint : 0.4,0.3
+				
+        	TextInput:
+        		id: passw
+            	password: True # hide password
+				pos_hint: {"x": 0.42, "y": 1.03}
+				size_hint : 0.3,0.14
+				multiline: False
+				font_size:26
+            	hint_text : "Password"
+            	write_tab: False
+    		
+            	
+
+				
+				
+			Button:
+				pos_hint: {"x": 0.9, "y": 2.9}
+				size_hint : 0.10,0.15
+    			text: "Home Page"
+    			font_size:20
+    			background_color: 1, 0, 0, 0.6
+				on_release: root.deleting_data()
+		          	
+
+
+			Button:
+				pos_hint: {"x": .44, "y": 0.6}
+				size_hint : 0.10,0.20
+    			text: "Login"
+    			font_size:20
+    			background_color: 1, 0, 0, 0.6
+            	on_release: root.verify_credentials()
+
+
+
+
+
+
+
+
+
+
+<StudentPage>:
+    name: "student_page"
+    
+    canvas:
+    	Rectangle:
+    		source: 'wallpaper5.png'
+            size: self.size
+            pos:self.pos   
+    
+    
+
+    
+    FloatLayout:
+    	Label:
+			text: "Please fill the following Details "
+			color : 0,0.9,0.72,1
+			font_size:38
+			pos_hint: {"x": 0.35, "y": 0.93}
+			size_hint : 0.3,0.04
+			
+			
+ 
+    	Label:
+			text: "Name"
+			color : 1,1,0.30,1
+			font_size:24
+			pos_hint: {"x": 0.17, "y": 0.85}
+			size_hint : 0.3,0.04
+				
+        TextInput:
+        	id: name
+			pos_hint: {"x": 0.40, "y": 0.85}
+			size_hint : 0.3,0.04
+			multiline: False  
+			font_size:22  
+            write_tab: False
+    	
+    		
+    
+			
+    	Label:
+			text: "Entry Number"
+			color : 1,1,0.30,1
+			font_size:24
+			pos_hint: {"x": 0.17, "y": 0.78}
+			size_hint : 0.3,0.04
+				
+        TextInput:
+        	id: entryno
+			pos_hint: {"x": 0.40, "y": 0.78}
+			size_hint : 0.3,0.04 
+			multiline: False  
+			font_size:22 
+		    write_tab: False
+		  
+			
+			
+    	Label:
+			text: "Branch"
+			color : 1,1,0.30,1
+			font_size:24
+			pos_hint: {"x": 0.17, "y": 0.71}
+			size_hint : 0.3,0.04
+				
+        TextInput:
+        	id: branch
+			pos_hint: {"x": 0.40, "y": 0.71}
+			size_hint : 0.3,0.04 
+			multiline: False  
+			font_size:22 
+			write_tab: False
+		 
+			
+			
+    	Label:
+			text: "Year of Passing"
+			color : 1,1,0.30,1
+			font_size:24
+			pos_hint: {"x": 0.17, "y": 0.64}
+			size_hint : 0.3,0.04
+			
+				
+        TextInput:
+        	id: passingyear
+			pos_hint: {"x": 0.40, "y": 0.64}
+			size_hint : 0.3,0.04 
+			multiline: False  
+			font_size:22 
+			write_tab: False
+		  
+			
+			
+    	Label:
+			text: "Address"
+			color : 1,1,0.30,1
+			font_size:24
+			pos_hint: {"x": 0.17, "y": 0.57}
+			size_hint : 0.3,0.04
+				
+        TextInput:
+        	id: address
+			pos_hint: {"x": 0.40, "y": 0.57}
+			size_hint : 0.3,0.04 
+			multiline: False  
+			font_size:22 
+			write_tab: False
+		    
+    		
+    	Label:
+			text: "Subject1"
+			color : 1,1,0.30,1
+			font_size:24
+			pos_hint: {"x": 0.17, "y": 0.50}
+			size_hint : 0.3,0.04
+				
+        TextInput:
+        	id: subject1
+			pos_hint: {"x": 0.40, "y": 0.50}
+			size_hint : 0.3,0.04 
+			multiline: False  
+			font_size:22
+			write_tab: False
+		    
+			
+			
+    	Label:
+			text: "Subject2"
+			color : 1,1,0.30,1
+			font_size:24
+			pos_hint: {"x": 0.17, "y": 0.43}
+			size_hint : 0.3,0.04
+				
+        TextInput:
+        	id: subject2
+			pos_hint: {"x": 0.40, "y": 0.43}
+			size_hint : 0.3,0.04 
+			multiline: False  
+			font_size:22
+			write_tab: False
+		    
+			
+    	Label:
+			text: "Subject3"
+			color : 1,1,0.30,1
+			font_size:24
+			pos_hint: {"x": 0.17, "y": 0.36}
+			size_hint : 0.3,0.04
+				
+        TextInput:
+        	id: subject3
+			pos_hint: {"x": 0.40, "y": 0.36}
+			size_hint : 0.3,0.04 
+			multiline: False  
+			font_size:22
+			write_tab: False
+		   
+			
+			
+    	Label:
+			text: "Subject4"
+			color : 1,1,0.30,1
+			font_size:24
+			pos_hint: {"x": 0.17, "y": 0.29}
+			size_hint : 0.3,0.04
+				
+        TextInput:
+        	id: subject4
+			pos_hint: {"x": 0.40, "y": 0.29}
+			size_hint : 0.3,0.04 
+			multiline: False  
+			font_size:22
+			write_tab: False
+		   
+			
+			
+    	Label:
+			text: "Subject5"
+			color : 1,1,0.30,1
+			font_size:24
+			pos_hint: {"x": 0.17, "y": 0.22}
+			size_hint : 0.3,0.04
+				
+        TextInput:
+        	id: subject5
+			pos_hint: {"x": 0.40, "y": 0.22}
+			size_hint : 0.3,0.04 
+			multiline: False  
+			font_size:22
+			write_tab: False
+		 
+		
+		Label:
+        	id: incorrect_details
+			pos_hint: {"x": 0.38, "y": 0.17}
+			size_hint : 0.3,0.04 
+			multiline: False  
+			font_size:22
+			
+
+		Button:
+			pos_hint: {"x": .45, "y": 0.12}
+			size_hint : 0.10,0.04
+    		text: "Submit"
+    		font_size:20
+    		background_color: 1, 0, 0, 0.6
+    		on_release : root.creatingdata(entryno.text)
+    		
+		Button:
+			pos_hint: {"x": .90, "y": 0.95}
+			size_hint : 0.10,0.04
+    		text: "logout"
+    		font_size:20
+    		background_color: 1, 0, 0, 0.6
+    		on_release : root.deleting_data("logout") 
+			
+			
+#		Button:
+#			pos_hint: {"x": .90, "y": .95}
+#			size_hint : 0.10,0.04
+#    		text: "Home Page"
+#    		font_size:20
+#    		background_color: 1, 0, 0, 0.6
+#    		on_release : root.deleting_data("homepage") 		
+
+	
+        	
+<AdminPage>:
+	name : "admin_page"
+	ddisplay: student_entryno
+	
+    canvas:
+    	Rectangle:
+    		source: 'wallpaper5.png'
+            size: self.size
+            pos:self.pos   
+    
+    
+    FloatLayout:
+    	Label:
+    		
+			text: "Entry no. of the student"
+			color : 1,1,0.30,1
+			font_size:24
+			pos_hint: {"x": 0.17, "y": 0.90}
+			size_hint : 0.3,0.04
+				
+        TextInput:
+        	id:student_entryno
+			pos_hint: {"x": 0.40, "y": 0.90}
+			size_hint : 0.3,0.04
+			multiline: False  
+			font_size:22 	
+			hint_text : "Entry no."
+			write_tab: False
+		    
+
+#		Button:
+#			pos_hint: {"x": 0.90, "y": .89}
+#			size_hint : 0.1,0.04
+#    		text: "Logout"
+#    		font_size:20
+#    		background_color: 1, 0, 0, 0.6
+#			on_release: root.deleting_data("homepage")       
+			
+		Button:
+			pos_hint: {"x": .90, "y": 0.93}
+			size_hint : 0.10,0.04
+    		text: "Logout"
+    		font_size:20
+    		background_color: 1, 0, 0, 0.6
+    		on_release : root.deleting_data("logout") 
+
+		Button:
+			pos_hint: {"x": .445, "y": 0.80}
+			size_hint : 0.08,0.06
+    		text: "Plot"
+    		font_size:20
+    		background_color: 1, 0, 0, 0.6
+    		on_release: root.plot_student_details()  
+
+
+		Button:
+			pos_hint: {"x": .29, "y": 0.80}
+			size_hint : 0.12,0.06
+    		text: "Student Details"
+    		font_size:20
+    		background_color: 1, 0, 0, 0.6
+    		on_release: root.display_student_details()  
+    		
+    	Button:
+			pos_hint: {"x": .56, "y": 0.80}
+			size_hint : 0.10,0.06
+    		text: "Detailed Analysis"
+    		font_size:20
+    		background_color: 1, 0, 0, 0.6
+    		on_release: root.deleting_data("details")  
+    		
+   ###################################################
+   		
+   
+   
+   
+   ####################################################
+    			
+    	Label:
+    		id: label_name
+			color : 1,1,0.30,1
+			font_size:20
+			pos_hint: {"x": 0.17, "y": 0.65}
+			size_hint : 0.3,0.04
+				
+        Label:
+        	id: Name
+			pos_hint: {"x": 0.33, "y": 0.65}
+			size_hint : 0.3,0.04
+			multiline: False  
+			font_size:18
+    		
+    
+			
+    	Label:
+			id: label_entryno
+			color : 1,1,0.30,1
+			font_size:20
+			pos_hint: {"x": 0.17, "y": 0.60}
+			size_hint : 0.3,0.04
+				
+        Label:
+        	id: entryno
+			pos_hint: {"x": 0.33, "y": 0.60}
+			size_hint : 0.3,0.04 
+			multiline: False  
+			font_size:18 
+			
+			
+    	Label:
+			id: label_branch
+			color : 1,1,0.30,1
+			font_size:20
+			pos_hint: {"x": 0.17, "y": 0.55}
+			size_hint : 0.3,0.04
+				
+        Label:
+        	id: branch
+			pos_hint: {"x": 0.33, "y": 0.55}
+			size_hint : 0.3,0.04 
+			multiline: False  
+			font_size:18
+			
+			
+    	Label:
+			id: label_passingyear
+			color : 1,1,0.30,1
+			font_size:20
+			pos_hint: {"x": 0.17, "y": 0.50}
+			size_hint : 0.3,0.04
+				
+        Label:
+        	id: passingyear
+			pos_hint: {"x": 0.33, "y": 0.50}
+			size_hint : 0.3,0.04 
+			multiline: False  
+			font_size:18 
+			
+			
+    	Label:
+			id: label_address
+			color : 1,1,0.30,1
+			font_size:20
+			pos_hint: {"x": 0.17, "y": 0.45}
+			size_hint : 0.3,0.04
+				
+        Label:
+        	id: address
+			pos_hint: {"x": 0.33, "y": 0.45}
+			size_hint : 0.3,0.04 
+			multiline: False  
+			font_size:18
+    	
+    	Label:
+			id: label_subject1
+			color : 1,1,0.30,1
+			font_size:20
+			pos_hint: {"x": 0.17, "y": 0.40}
+			size_hint : 0.3,0.04
+				
+        Label:
+        	id: subject1
+			pos_hint: {"x": 0.33, "y": 0.40}
+			size_hint : 0.3,0.04 
+			multiline: False  
+			font_size:18
+			
+		
+		Label:
+        	id: subject1marks
+			pos_hint: {"x": 0.40, "y": 0.40}
+			size_hint : 0.3,0.04 
+			multiline: False  
+			font_size:18
+			
+			
+    	Label:
+			id: label_subject2
+			color : 1,1,0.30,1
+			font_size:20
+			pos_hint: {"x": 0.17, "y": 0.35}
+			size_hint : 0.3,0.04
+		
+		
+				
+        Label:
+        	id: subject2
+			pos_hint: {"x": 0.33, "y": 0.35}
+			size_hint : 0.3,0.04 
+			multiline: False  
+			font_size:18
+			
+			
+		Label:
+        	id: subject2marks
+			pos_hint: {"x": 0.40, "y": 0.35}
+			size_hint : 0.3,0.04 
+			multiline: False  
+			font_size:18	
+			
+    	Label:
+			id: label_subject3
+			color : 1,1,0.30,1
+			font_size:20
+			pos_hint: {"x": 0.17, "y": 0.30}
+			size_hint : 0.3,0.04
+				
+        Label:
+        	id: subject3
+			pos_hint: {"x": 0.33, "y": 0.30}
+			size_hint : 0.3,0.04 
+			multiline: False  
+			font_size:18
+			
+		Label:
+        	id: subject3marks
+			pos_hint: {"x": 0.40, "y": 0.30}
+			size_hint : 0.3,0.04 
+			multiline: False  
+			font_size:18
+			
+		
+    	Label:
+			id: label_subject4
+			color : 1,1,0.30,1
+			font_size:20
+			pos_hint: {"x": 0.17, "y": 0.25}
+			size_hint : 0.3,0.04
+				
+        Label:
+        	id: subject4
+			pos_hint: {"x": 0.33, "y": 0.25}
+			size_hint : 0.3,0.04 
+			multiline: False  
+			font_size:18
+			
+		Label:
+        	id: subject4marks
+			pos_hint: {"x": 0.40, "y": 0.25}
+			size_hint : 0.3,0.04 
+			multiline: False  
+			font_size:18
+			
+			
+    	Label:
+			id: label_subject5
+			color : 1,1,0.30,1
+			font_size:20
+			pos_hint: {"x": 0.17, "y": 0.20}
+			size_hint : 0.3,0.04
+				
+        Label:
+        	id: subject5
+			pos_hint: {"x": 0.33, "y": 0.20}
+			size_hint : 0.3,0.04 
+			multiline: False  
+			font_size:18
+		
+		Label:
+        	id: subject5marks
+			pos_hint: {"x": 0.40, "y": 0.20}
+			size_hint : 0.3,0.04 
+			multiline: False  
+			font_size : 18
+
+
+			
+    	Label:
+			id: label_subject6
+			color : 1,1,0.30,1
+			font_size:20
+			pos_hint: {"x": 0.17, "y": 0.15}
+			size_hint : 0.3,0.04
+				
+        Label:
+        	id: subject6
+			pos_hint: {"x": 0.33, "y": 0.15}
+			size_hint : 0.3,0.04 
+			multiline: False  
+			font_size:18
+		
+		Label:
+        	id: subject6marks
+			pos_hint: {"x": 0.40, "y": 0.15}
+			size_hint : 0.3,0.04 
+			multiline: False  
+			font_size : 18
+			
+			
+			
+    	Label:
+			id: label_subject7
+			color : 1,1,0.30,1
+			font_size:20
+			pos_hint: {"x": 0.17, "y": 0.10}
+			size_hint : 0.3,0.04
+				
+        Label:
+        	id: subject7
+			pos_hint: {"x": 0.33, "y": 0.10}
+			size_hint : 0.3,0.04 
+			multiline: False  
+			font_size:18
+		
+		Label:
+        	id: subject7marks
+			pos_hint: {"x": 0.40, "y": 0.10}
+			size_hint : 0.3,0.04 
+			multiline: False  
+			font_size : 18			
+			
+			
+       
+<StudentDetailsPage>:
+	name:"student_details_page"
+	
+	
+
+    canvas:
+    	Rectangle:
+    		source: 'wallpaper5.png'
+            size: self.size
+            pos:self.pos 
+            
+    canvas:
+    	Rectangle:
+    		source: 'user.png'
+    		size : 200,200
+    		pos: (1300,700)	
+	
+	FloatLayout:
+    	Label:
+			text: "Name"
+			color : 1,1,0.30,1
+			font_size:24
+			pos_hint: {"x": 0.17, "y": 0.85}
+			size_hint : 0.3,0.04
+				
+        Label:
+        	id: Name
+			pos_hint: {"x": 0.33, "y": 0.85}
+			size_hint : 0.3,0.04
+			multiline: False  
+			font_size:22    	
+    		
+    
+			
+    	Label:
+			text: "Entry Number"
+			color : 1,1,0.30,1
+			font_size:24
+			pos_hint: {"x": 0.17, "y": 0.78}
+			size_hint : 0.3,0.04
+				
+        Label:
+        	id: entryno
+			pos_hint: {"x": 0.33, "y": 0.78}
+			size_hint : 0.3,0.04 
+			multiline: False  
+			font_size:22 
+			
+			
+    	Label:
+			text: "Branch"
+			color : 1,1,0.30,1
+			font_size:24
+			pos_hint: {"x": 0.17, "y": 0.71}
+			size_hint : 0.3,0.04
+				
+        Label:
+        	id: branch
+			pos_hint: {"x": 0.33, "y": 0.71}
+			size_hint : 0.3,0.04 
+			multiline: False  
+			font_size:22 
+			
+			
+    	Label:
+			text: "Year of Passing"
+			color : 1,1,0.30,1
+			font_size:24
+			pos_hint: {"x": 0.17, "y": 0.64}
+			size_hint : 0.3,0.04
+				
+        Label:
+        	id: passingyear
+			pos_hint: {"x": 0.33, "y": 0.64}
+			size_hint : 0.3,0.04 
+			multiline: False  
+			font_size:22 
+			
+			
+    	Label:
+			text: "Address"
+			color : 1,1,0.30,1
+			font_size:24
+			pos_hint: {"x": 0.17, "y": 0.57}
+			size_hint : 0.3,0.04
+				
+        Label:
+        	id: address
+			pos_hint: {"x": 0.33, "y": 0.57}
+			size_hint : 0.3,0.04 
+			multiline: False  
+			font_size:22 
+    	
+    	Label:
+			text: "Subject1"
+			color : 1,1,0.30,1
+			font_size:24
+			pos_hint: {"x": 0.17, "y": 0.50}
+			size_hint : 0.3,0.04
+				
+        Label:
+        	id: subject1
+			pos_hint: {"x": 0.33, "y": 0.50}
+			size_hint : 0.3,0.04 
+			multiline: False  
+			font_size:22
+			
+		Label:
+        	id: subject1marks
+			pos_hint: {"x": 0.40, "y": 0.50}
+			size_hint : 0.3,0.04 
+			multiline: False  
+			font_size:22
+			
+    	Label:
+			text: "Subject2"
+			color : 1,1,0.30,1
+			font_size:24
+			pos_hint: {"x": 0.17, "y": 0.43}
+			size_hint : 0.3,0.04
+		
+		
+				
+        Label:
+        	id: subject2
+			pos_hint: {"x": 0.33, "y": 0.43}
+			size_hint : 0.3,0.04 
+			multiline: False  
+			font_size:22
+			
+		Label:
+        	id: subject2marks
+			pos_hint: {"x": 0.40, "y": 0.43}
+			size_hint : 0.3,0.04 
+			multiline: False  
+			font_size:22
+			
+			
+			
+    	Label:
+			text: "Subject3"
+			color : 1,1,0.30,1
+			font_size:24
+			pos_hint: {"x": 0.17, "y": 0.36}
+			size_hint : 0.3,0.04
+				
+        Label:
+        	id: subject3
+			pos_hint: {"x": 0.33, "y": 0.36}
+			size_hint : 0.3,0.04 
+			multiline: False  
+			font_size:22
+			
+		
+		Label:
+        	id: subject3marks
+			pos_hint: {"x": 0.40, "y": 0.36}
+			size_hint : 0.3,0.04 
+			multiline: False  
+			font_size:22
+		
+		
+    	Label:
+			text: "Subject4"
+			color : 1,1,0.30,1
+			font_size:24
+			pos_hint: {"x": 0.17, "y": 0.29}
+			size_hint : 0.3,0.04
+				
+        Label:
+        	id: subject4
+			pos_hint: {"x": 0.33, "y": 0.29}
+			size_hint : 0.3,0.04 
+			multiline: False  
+			font_size:22
+			
+		Label:
+        	id: subject4marks
+			pos_hint: {"x": 0.40, "y": 0.29}
+			size_hint : 0.3,0.04 
+			multiline: False  
+			font_size:22
+			
+			
+			
+    	Label:
+			text: "Subject5"
+			color : 1,1,0.30,1
+			font_size:24
+			pos_hint: {"x": 0.17, "y": 0.22}
+			size_hint : 0.3,0.04
+				
+        Label:
+        	id: subject5
+			pos_hint: {"x": 0.33, "y": 0.22}
+			size_hint : 0.3,0.04 
+			multiline: False  
+			font_size:22
+		
+		Label:
+        	id: subject5marks
+			pos_hint: {"x": 0.40, "y": 0.22}
+			size_hint : 0.3,0.04 
+			multiline: False  
+			font_size:22
+			
+
+			
+		Button:
+			id : back
+			pos_hint: {"x": .90, "y": 0.90}
+			size_hint : 0.10,0.04
+    		text: "Back"
+    		font_size:20
+    		background_color: 1, 0, 0, 0.6
+    		on_release : root.deleting_data("back") 
+
+		Button:
+			pos_hint: {"x": .40, "y": 0.12}
+			size_hint : 0.10,0.04
+    		text: "Show Data"
+    		font_size:20
+    		background_color: 1, 0, 0, 0.6
+    		on_release : 
+    			root.show_data() 
+ 
+			
+		Button:
+			id : logout
+			pos_hint: {"x": .90, "y": 0.95}
+			size_hint : 0.10,0.04
+    		text: "logout"
+    		font_size:20
+    		background_color: 1, 0, 0, 0.6
+    		on_release : root.deleting_data("logout") 
+    			 	
+  	
+<DetailsPage>:
+	name : "details_page"
+
+    canvas:
+		Rectangle:
+			source: 'wallpaper5.png'
+       	 size: self.size
+       	 pos:self.pos   
+
+
+	FloatLayout:
+	
+		Button:
+			pos_hint: {"x": 0.90, "y": .93}
+			size_hint : 0.1,0.04
+    		text: "Logout"
+    		font_size:20
+    		background_color: 1, 0, 0, 0.6
+			on_release: root.deleting_data("logout")    
+			
+			
+#		Button:
+#			pos_hint: {"x": 0.90, "y": .93}
+#			size_hint : 0.1,0.04
+#    		text: "Home Page"
+#    		font_size:20
+#    		background_color: 1, 0, 0, 0.6
+#			on_release: root.deleting_data("homepage")    
+			
+		Button:
+			pos_hint: {"x": .90, "y": 0.89}
+			size_hint : 0.1,0.04
+    		text: "Back"
+    		font_size:20
+    		background_color: 1, 0, 0, 0.6
+    		on_release: root.deleting_data("back")
+			
+   	
+		Button:
+			pos_hint: {"x": .53, "y": 0.80}
+			size_hint : 0.08,0.06
+    		text: "Plot"
+    		font_size:20
+    		background_color: 1, 0, 0, 0.6
+    		on_release: root.plot()
+
+
+		Button:
+			pos_hint: {"x": .35, "y": 0.80}
+			size_hint : 0.12,0.06
+    		text: "Average Marks"
+    		font_size:20
+    		background_color: 1, 0, 0, 0.6
+    		on_release: root.detailed_details() 
+
+
+
+#####
+
+    	Label:
+			id : sno
+			color : 1,1,0.30,1
+			font_size:24
+			pos_hint: {"x": 0.17, "y": 0.65}
+			size_hint : 0.3,0.04
+
+
+    	Label:
+			id : sno1
+			#color : 1,1,0.30,1
+			font_size:20
+			pos_hint: {"x": 0.17, "y": 0.60}
+			size_hint : 0.3,0.04
+			
+    	Label:
+			id : sno2
+			#color : 1,1,0.30,1
+			font_size:20
+			pos_hint: {"x": 0.17, "y": 0.55}
+			size_hint : 0.3,0.04
+			
+    	Label:
+			id : sno3
+			#color : 1,1,0.30,1
+			font_size:20
+			pos_hint: {"x": 0.17, "y": 0.50}
+			size_hint : 0.3,0.04
+			
+    	Label:
+			id : sno4
+			3color : 1,1,0.30,1
+			font_size:20
+			pos_hint: {"x": 0.17, "y": 0.45}
+			size_hint : 0.3,0.04
+			
+    	Label:
+			id : sno5
+			#color : 1,1,0.30,1
+			font_size:20
+			pos_hint: {"x": 0.17, "y": 0.40}
+			size_hint : 0.3,0.04
+
+######
+
+
+
+    	Label:
+			id : name
+			color : 1,1,0.30,1
+			font_size:24
+			pos_hint: {"x": 0.27, "y": 0.65}
+			size_hint : 0.3,0.04
+
+		Label:
+			id : name1
+			#color : 1,1,0.30,1
+			font_size:20
+			pos_hint: {"x": 0.27, "y": 0.60}
+			size_hint : 0.3,0.04
+		
+		
+		Label:
+			id : name2
+			#color : 1,1,0.30,1
+			font_size:20
+			pos_hint: {"x": 0.27, "y": 0.55}
+			size_hint : 0.3,0.04
+		
+		
+		Label:
+			id : name3
+			#color : 1,1,0.30,1
+			font_size:20
+			pos_hint: {"x": 0.27, "y": 0.50}
+			size_hint : 0.3,0.04
+		
+		
+		
+		Label:
+			id : name4
+			#color : 1,1,0.30,1
+			font_size:20
+			pos_hint: {"x": 0.27, "y": 0.45}
+			size_hint : 0.3,0.04
+		
+		
+		
+		Label:
+			id : name5
+			#color : 1,1,0.30,1
+			font_size:20
+			pos_hint: {"x": 0.27, "y": 0.40}
+			size_hint : 0.3,0.04
+		
+######
+
+
+    	Label:
+			id : entryno
+			color : 1,1,0.30,1
+			font_size:24
+			pos_hint: {"x": 0.37, "y": 0.65}
+			size_hint : 0.3,0.04
+
+		Label:
+			id : entryno1
+			#color : 1,1,0.30,1
+			font_size:20
+			pos_hint: {"x": 0.37, "y": 0.60}
+			size_hint : 0.3,0.04
+		
+		
+		Label:
+			id : entryno2
+			#color : 1,1,0.30,1
+			font_size:20
+			pos_hint: {"x": 0.37, "y": 0.55}
+			size_hint : 0.3,0.04
+		
+		
+		Label:
+			id : entryno3
+			#color : 1,1,0.30,1
+			font_size:20
+			pos_hint: {"x": 0.37, "y": 0.50}
+			size_hint : 0.3,0.04
+		
+		
+		
+		Label:
+			id : entryno4
+			#color : 1,1,0.30,1
+			font_size:20
+			pos_hint: {"x": 0.37, "y": 0.45}
+			size_hint : 0.3,0.04
+		
+		
+		
+		Label:
+			id : entryno5
+			#color : 1,1,0.30,1
+			font_size:20
+			pos_hint: {"x": 0.37, "y": 0.40}
+			size_hint : 0.3,0.04
+			
+			
+####
+
+
+    	Label:
+			id : marks
+			color : 1,1,0.30,1
+			font_size:24
+			pos_hint: {"x": 0.47, "y": 0.65}
+			size_hint : 0.3,0.04
+
+		Label:
+			id : marks1
+			#color : 1,1,0.30,1
+			font_size:20
+			pos_hint: {"x": 0.47, "y": 0.60}
+			size_hint : 0.3,0.04
+		
+		
+		Label:
+			id : marks2
+			#color : 1,1,0.30,1
+			font_size:20
+			pos_hint: {"x": 0.47, "y": 0.55}
+			size_hint : 0.3,0.04
+		
+		
+		Label:
+			id : marks3
+			#color : 1,1,0.30,1
+			font_size:20
+			pos_hint: {"x": 0.47, "y": 0.50}
+			size_hint : 0.3,0.04
+		
+		
+		
+		Label:
+			id : marks4
+			#color : 1,1,0.30,1
+			font_size:20
+			pos_hint: {"x": 0.47, "y": 0.45}
+			size_hint : 0.3,0.04
+		
+		
+		
+		Label:
+			id : marks5
+			#color : 1,1,0.30,1
+			font_size:20
+			pos_hint: {"x": 0.47, "y": 0.40}
+			size_hint : 0.3,0.04
+			
+			
